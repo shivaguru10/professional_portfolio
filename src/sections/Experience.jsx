@@ -17,7 +17,7 @@ const experienceData = [
 
 export default function Experience() {
   return (
-    <section className="px-6 py-20 bg-black text-white">
+    <section id="experience" className="px-6 py-20">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center text-green-400">
           Experience & Education
@@ -27,7 +27,7 @@ export default function Experience() {
           {experienceData.map((item, index) => (
             <div key={index} className="relative">
               {/* Dot */}
-              <span className="absolute -left-2.5 top-2 w-4 h-4 rounded-full bg-green-400"></span>
+              
 
               <h3 className="text-xl font-semibold text-green-300">
                 {item.title}
