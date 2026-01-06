@@ -8,7 +8,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-green-400/20 bg-black text-white">
+    <footer className="border-t border-green-400/20">
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col items-center gap-6">
         
         {/* Name / Tagline */}

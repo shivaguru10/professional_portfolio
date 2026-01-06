@@ -30,7 +30,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="px-6 py-20 bg-black text-white">
+    <section id="projects" className="px-6 py-20">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold mb-12 text-center text-green-400">
           Projects
