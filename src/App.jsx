@@ -23,7 +23,7 @@ export default function App() {
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
     localStorage.setItem("theme", newTheme);
   };
 
@@ -31,11 +31,11 @@ export default function App() {
     <>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
-      <Hero />
+      {/* <Hero />
       <About />
       <Skills />
       <Projects />
-      <Experience />
+      <Experience /> */}
       <Contact />
 
       <Footer />
