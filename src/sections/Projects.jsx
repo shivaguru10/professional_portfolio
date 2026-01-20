@@ -1,70 +1,77 @@
-const projects = [
-  {
-    title: "MERN E-Commerce App",
-    description:
-      "Full-featured e-commerce application with authentication, cart, orders, and admin panel.",
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-    github: "https://github.com/yourusername/mern-ecommerce",
-    live: "https://your-ecommerce-live-link.com",
-  },
-  {
-    title: "Todo App with Backend",
-    description:
-      "Todo application built with React, Node.js, Express, and MongoDB.",
-    image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
-    github: "https://github.com/yourusername/todo-app",
-    live: "https://your-todo-live-link.com",
-  },
-  {
-    title: "Authentication System",
-    description:
-      "JWT-based authentication system with secure login and registration.",
-    image:
-      "https://images.unsplash.com/photo-1556155092-8707de31f9c4",
-    github: "https://github.com/yourusername/auth-system",
-    live: "https://your-auth-live-link.com",
-  },
-];
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { PROJECTS } from "../constants";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    gsap.from(".project-card", {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 95%",
+        toggleActions: "play none none none",
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power3.out",
+    });
+  }, { scope: containerRef });
+
   return (
-    <section id="projects" className="px-6 py-20">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center text-green-400">
-          Projects
+    <section id="projects" ref={containerRef} className="px-6 py-24 bg-[var(--color-surface)]">
+      <div className="max-w-7xl auto">
+        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-[var(--color-text)]">
+          <span className="text-[var(--color-primary)]">Featured</span> Projects
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {PROJECTS.map((project, index) => (
             <div
               key={index}
-              className="rounded-2xl overflow-hidden border border-green-400/20 bg-white/5 backdrop-blur hover:scale-[1.02] transition"
+              className="project-card flex flex-col rounded-3xl overflow-hidden border border-[var(--color-primary)]/10 bg-[var(--color-bg)] shadow-lg hover:shadow-xl hover:shadow-[var(--color-primary)]/10 transition-all duration-300 group"
             >
               {/* Project Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="h-48 w-full object-cover"
-              />
+              <div className="relative overflow-hidden aspect-video">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-green-300">
+              <div className="p-8 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold mb-3 text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
                   {project.title}
                 </h3>
 
-                <p className="text-gray-400 text-sm mb-6">
+                <p className="text-[var(--color-text-dim)] text-base mb-6 line-clamp-3">
                   {project.description}
                 </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-8 mt-auto">
+                  {project.tags?.map((tag) => (
+                    <span key={tag} className="text-xs font-bold px-3 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)]">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
                 <div className="flex gap-4">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-2 rounded-lg border border-green-400 text-green-400 hover:bg-green-400 hover:text-black transition"
+                    className="flex-1 text-center px-4 py-3 rounded-xl border border-[var(--color-primary)]/20 text-[var(--color-text)] hover:bg-[var(--color-primary)] hover:text-white transition font-bold text-sm"
                   >
                     GitHub
                   </a>
@@ -73,7 +80,7 @@ export default function Projects() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-2 rounded-lg bg-green-400 text-black hover:bg-green-300 transition"
+                    className="flex-1 text-center px-4 py-3 rounded-xl bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] transition font-bold text-sm shadow-lg shadow-[var(--color-primary)]/20"
                   >
                     Live Demo
                   </a>

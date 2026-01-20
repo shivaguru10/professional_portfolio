@@ -5,7 +5,7 @@ import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
 import Experience from "./sections/Experience";
-import Contact from "./sections/Contact";
+import Contact from "./sections/contact";
 
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -23,7 +23,7 @@ export default function App() {
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
     localStorage.setItem("theme", newTheme);
   };
 
@@ -31,11 +31,11 @@ export default function App() {
     <>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
-      <Hero />
+      {/* <Hero />
       <About />
       <Skills />
       <Projects />
-      <Experience />
+      <Experience /> */}
       <Contact />
 
       <Footer />

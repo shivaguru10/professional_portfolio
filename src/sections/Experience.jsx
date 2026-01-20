@@ -1,45 +1,59 @@
-const experienceData = [
-  {
-    title: "Internship – Full Stack Developer",
-    place: "Sri Max Company, Sivakasi",
-    time: "2024 (1 Month)",
-    description:
-      "Worked on real-world web development tasks, learned practical frontend and backend integration, and improved problem-solving skills.",
-  },
-  {
-    title: "B.Tech – Information Technology",
-    place: "PSNA College of Engineering and Technology",
-    time: "2021 – 2025",
-    description:
-      "Completed Bachelor’s degree in Information Technology with strong fundamentals in programming, databases, and web development.",
-  },
-];
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { EXPERIENCE_EDUCATION } from "../constants";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Experience() {
+  const containerRef = useRef();
+
+  useGSAP(() => {
+    gsap.from(".exp-item", {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 95%",
+        toggleActions: "play none none none",
+      },
+      x: -30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.3,
+      ease: "power3.out",
+    });
+  }, { scope: containerRef });
+
   return (
-    <section id="experience" className="px-6 py-20">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center text-green-400">
-          Experience & Education
+    <section id="experience" ref={containerRef} className="px-6 py-24 bg-[var(--color-bg)]">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-[var(--color-text)]">
+          My <span className="text-[var(--color-primary)]">Journey</span>
         </h2>
 
-        <div className="relative border-l border-green-400/30 pl-6 space-y-10">
-          {experienceData.map((item, index) => (
-            <div key={index} className="relative">
+        <div className="relative border-l-2 border-[var(--color-primary)]/30 ml-4 md:ml-0 pl-8 space-y-16">
+          {EXPERIENCE_EDUCATION.map((item, index) => (
+            <div key={index} className="exp-item relative">
               {/* Dot */}
-              
+              <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-[var(--color-primary)] shadow-lg shadow-[var(--color-primary)]/30" />
 
-              <h3 className="text-xl font-semibold text-green-300">
-                {item.title}
-              </h3>
+              <div className="bg-[var(--color-surface)] p-8 rounded-3xl border border-[var(--color-primary)]/10 shadow-md hover:shadow-lg transition-shadow">
+                <span className="inline-block px-3 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-xs font-bold mb-4">
+                  {item.time}
+                </span>
 
-              <p className="text-sm text-gray-400">
-                {item.place} • {item.time}
-              </p>
+                <h3 className="text-2xl font-bold text-[var(--color-text)] mb-2">
+                  {item.title}
+                </h3>
 
-              <p className="mt-3 text-gray-400 leading-relaxed">
-                {item.description}
-              </p>
+                <p className="text-[var(--color-primary)] font-medium mb-4">
+                  {item.place}
+                </p>
+
+                <p className="text-[var(--color-text-dim)] leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
