@@ -126,7 +126,7 @@ export default function Contact() {
           <button
             type="submit"
             className="w-full py-4 rounded-xl
-                        text-white
+                        text-black
                        font-bold text-lg
                        
                        transition-all active:scale-[0.98]"
