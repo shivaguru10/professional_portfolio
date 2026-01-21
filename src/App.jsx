@@ -29,7 +29,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      {/* <Navbar theme={theme} toggleTheme={toggleTheme} /> */}
 
       {/* <Hero />
       <About />
