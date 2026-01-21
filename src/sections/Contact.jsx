@@ -52,9 +52,9 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         {/* Left Content */}
         <div className="contact-item">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--color-text)]">
+          {/* <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--color-text)]">
             Let’s <span className="text-[var(--color-primary)]">Connect</span>
-          </h2>
+          </h2> */}
           <p className="text-[var(--color-text-dim)] text-lg leading-relaxed max-w-md">
             Have a project in mind or just want to say hi? Feel free to reach out.
             I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
@@ -126,10 +126,9 @@ export default function Contact() {
           <button
             type="submit"
             className="w-full py-4 rounded-xl
-                       bg-[var(--color-primary)] text-white
+                        text-white
                        font-bold text-lg
-                       hover:bg-[var(--color-primary-hover)] 
-                       hover:shadow-lg hover:shadow-[var(--color-primary)]/20
+                       
                        transition-all active:scale-[0.98]"
           >
             Send Message
