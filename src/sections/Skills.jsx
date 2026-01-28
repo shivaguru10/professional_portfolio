@@ -10,24 +10,7 @@ export default function Skills() {
   const containerRef = useRef();
 
   useGSAP(() => {
-    // Ensure visibility if ScrollTrigger is already past the point
-    gsap.set(".skill-card", { opacity: 0, y: 40 });
-
-    gsap.to(".skill-card", {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 85%",
-        toggleActions: "play none none none",
-      },
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power4.out",
-    });
-
-    // Refresh to handle layout shifts
-    ScrollTrigger.refresh();
+    // Animations removed per request
   }, { scope: containerRef });
 
   return (
@@ -41,17 +24,17 @@ export default function Skills() {
           {SKILLS.map((skill, index) => (
             <div
               key={index}
-              className="skill-card p-10 rounded-[2rem] border border-[var(--color-primary)]/10 bg-[var(--color-surface)] shadow-sm hover:shadow-xl hover:shadow-[var(--color-primary)]/5 transition-all duration-500 group"
+              className="skill-card p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm group h-full"
             >
-              <h3 className="text-2xl font-bold mb-8 text-[var(--color-primary)] group-hover:translate-x-1 transition-transform">
+              <h3 className="text-xl font-bold mb-5 text-[var(--color-primary)]">
                 {skill.title}
               </h3>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {skill.items.map((item, i) => (
                   <span
                     key={i}
-                    className="px-5 py-2.5 rounded-2xl bg-[var(--color-bg)] border border-[var(--color-primary)]/10 text-[var(--color-text-dim)] font-semibold text-sm group-hover:border-[var(--color-primary)]/40 group-hover:text-[var(--color-text)] transition-all duration-300"
+                    className="px-3 py-1.5 rounded-full border border-[var(--color-primary)] text-[var(--color-text)] font-medium text-sm bg-transparent"
                   >
                     {item}
                   </span>

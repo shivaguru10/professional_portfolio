@@ -11,14 +11,18 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 
+function getInitialTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) return savedTheme;
+  return "light";
+}
+
 export default function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    setTheme(savedTheme);
-    document.documentElement.classList.toggle("dark", savedTheme === "dark");
-  }, []);
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -29,13 +33,13 @@ export default function App() {
 
   return (
     <>
-      {/* <Navbar theme={theme} toggleTheme={toggleTheme} /> */}
+      <Navbar theme={theme} toggleTheme={toggleTheme} /> 
 
-      {/* <Hero />
+       <Hero />
       <About />
       <Skills />
       <Projects />
-      <Experience /> */}
+      <Experience />
       <Contact />
 
       <Footer />

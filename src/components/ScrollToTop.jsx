@@ -28,7 +28,7 @@ export default function ScrollToTop() {
     visible && (
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-green-400 text-black shadow-lg hover:bg-green-300 transition"
+        className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-[var(--color-primary)] text-white transition-all overflow-hidden"
         aria-label="Scroll to top"
       >
         <FaArrowUp />

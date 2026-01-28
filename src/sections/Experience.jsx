@@ -10,35 +10,24 @@ export default function Experience() {
   const containerRef = useRef();
 
   useGSAP(() => {
-    gsap.from(".exp-item", {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 95%",
-        toggleActions: "play none none none",
-      },
-      x: -30,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.3,
-      ease: "power3.out",
-    });
+    // Animations removed per request
   }, { scope: containerRef });
 
   return (
-    <section id="experience" ref={containerRef} className="px-6 py-24 bg-[var(--color-bg)]">
+    <section id="experience" ref={containerRef} className="px-6 py-24 bg-[var(--color-bg)] transition-colors duration-300">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-[var(--color-text)]">
           My <span className="text-[var(--color-primary)]">Journey</span>
         </h2>
 
-        <div className="relative border-l-2 border-[var(--color-primary)]/30 ml-4 md:ml-0 pl-8 space-y-16">
+        <div className="relative border-l-2 border-[var(--color-primary)]/20 ml-4 md:ml-0 pl-8 space-y-16">
           {EXPERIENCE_EDUCATION.map((item, index) => (
             <div key={index} className="exp-item relative">
               {/* Dot */}
-              <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-[var(--color-primary)] shadow-lg shadow-[var(--color-primary)]/30" />
+              <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-[var(--color-primary)]" />
 
-              <div className="bg-[var(--color-surface)] p-8 rounded-3xl border border-[var(--color-primary)]/10 shadow-md hover:shadow-lg transition-shadow">
-                <span className="inline-block px-3 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-xs font-bold mb-4">
+              <div className="bg-[var(--color-surface)] p-8 rounded-xl shadow-sm border border-[var(--color-border)]">
+                <span className="inline-block px-3 py-1 rounded-full border border-[var(--color-primary)] text-[var(--color-primary)] text-xs font-bold mb-4">
                   {item.time}
                 </span>
 
