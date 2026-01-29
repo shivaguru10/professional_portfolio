@@ -41,7 +41,7 @@ export default function Hero() {
           </a>
 
           <a
-            href="/Shivaguru_CV_2026.pdf"
+            href={`${import.meta.env.BASE_URL}Shivaguru_CV_2026.pdf`}
             download="Shivaguru_CV_2026.pdf"
             className="px-8 py-4 rounded-lg
                        border-2 border-[var(--color-primary)]
