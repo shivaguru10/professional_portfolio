@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,58 +8,69 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
   const containerRef = useRef(null);
+  const [showAll, setShowAll] = useState(false);
 
   useGSAP(() => {
     // Animations removed per request
   }, { scope: containerRef });
 
-  return (
-    <section id="projects" ref={containerRef} className="px-6 py-24 bg-[var(--color-bg)] transition-colors duration-300">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-[var(--color-text)]">
-          <span className="text-[var(--color-primary)]">Featured</span> Projects
-        </h2>
+  // Show first 3 projects by default, all when expanded
+  const visibleProjects = showAll ? PROJECTS : PROJECTS.slice(0, 3);
+  const hasMoreProjects = PROJECTS.length > 3;
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PROJECTS.map((project, index) => (
+  return (
+    <section id="projects" ref={containerRef} className="px-4 md:px-6 pt-20 pb-[80px] bg-white">
+      <div className="max-w-[1080px] mx-auto">
+        <h2 className="text-[34px] font-semibold mb-3 text-center text-[#111111] tracking-[-0.025em]">
+          Featured Projects
+        </h2>
+        <p className="text-[15px] text-[#555555] text-center mb-12 tracking-[-0.01em]">
+          A selection of my recent work
+        </p>
+
+        <div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden transition-all duration-500 ease-in-out"
+        >
+          {visibleProjects.map((project, index) => (
             <div
               key={index}
-              className="project-card flex flex-col rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm group"
+              className="project-card flex flex-col rounded-lg border border-[#E5E5E5] bg-white max-w-[340px] mx-auto w-full"
             >
-              {/* Project Image */}
-              <div className="relative overflow-hidden aspect-video">
+              {/* Project Image - Reduced height */}
+              <div className="relative overflow-hidden h-[160px]">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-t-lg"
                 />
               </div>
 
-              {/* Content */}
-              <div className="p-8 flex flex-col flex-1">
-                <h3 className="text-2xl font-bold mb-3 text-[var(--color-text)]">
+              {/* Content - Compact padding */}
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-[20px] font-semibold mb-2 text-[#111111] tracking-[-0.02em] leading-[1.2]">
                   {project.title}
                 </h3>
 
-                <p className="text-[var(--color-text-dim)] text-base mb-6 line-clamp-3">
+                <p className="text-[#555555] text-[14px] mb-4 line-clamp-2 leading-[1.5]">
                   {project.description}
                 </p>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-8 mt-auto">
+                {/* Tags - Smaller, compact */}
+                <div className="flex flex-wrap gap-1.5 mb-5 mt-auto">
                   {project.tags?.map((tag) => (
-                    <span key={tag} className="text-xs font-bold px-3 py-1 rounded-full border border-[var(--color-primary)] text-[var(--color-text)]">
+                    <span key={tag} className="text-[12px] font-normal px-2.5 py-1 rounded-[16px] border border-[#E5E5E5] text-[#555555]">
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-4">
+                {/* Buttons - Apple compact style */}
+                <div className="flex gap-2">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-3 rounded-xl border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-bold text-sm transition-colors"
+                    className="flex-1 text-center px-4 py-2 rounded-lg border border-[#0071E3] text-[#0071E3] font-medium text-[13px] hover:bg-[#0071E3]/5"
                   >
                     GitHub
                   </a>
@@ -68,7 +79,7 @@ export default function Projects() {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-3 rounded-xl bg-[var(--color-primary)] text-white font-bold text-sm transition-colors"
+                    className="flex-1 text-center px-4 py-2 rounded-lg bg-[#0071E3] text-white font-medium text-[13px] hover:bg-[#005BBB]"
                   >
                     Live Demo
                   </a>
@@ -77,6 +88,18 @@ export default function Projects() {
             </div>
           ))}
         </div>
+
+        {/* Show More / Show Less Button */}
+        {hasMoreProjects && (
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-5 py-2.5 rounded-lg bg-[#0071E3] text-white font-medium text-[15px] hover:bg-[#005BBB]"
+            >
+              {showAll ? "Show Less" : "Show More Projects"}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

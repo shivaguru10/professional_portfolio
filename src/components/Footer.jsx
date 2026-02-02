@@ -8,26 +8,26 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg)]">
-      <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col items-center gap-6">
+    <footer className="bg-[#F5F5F7]">
+      <div className="max-w-[980px] mx-auto px-6 py-12 flex flex-col items-center gap-5">
 
-        {/* Name / Tagline */}
-        <div className="text-center">
-          <h3 className="text-xl font-semibold text-[var(--color-primary)]">
-            Shivaguru
-          </h3>
-          <p className="text-[var(--color-text-dim)] text-sm">
-            Full Stack Developer • MERN • React
-          </p>
-        </div>
+        {/* Name */}
+        <h3 className="text-[19px] font-semibold text-[#111111] tracking-[-0.02em]">
+          Shivaguru
+        </h3>
 
-        {/* Social + Contact Icons */}
-        <div className="flex gap-6 text-xl">
+        {/* Role */}
+        <p className="text-[#777777] text-[15px] tracking-[-0.01em] -mt-2">
+          Full Stack Developer
+        </p>
+
+        {/* Social Icons - Monochrome grey */}
+        <div className="flex gap-4 text-[20px] mt-2">
           <a
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors"
+            className="text-[#777777] hover:text-[#111111]"
             title="GitHub"
           >
             <FaGithub />
@@ -37,7 +37,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors"
+            className="text-[#777777] hover:text-[#111111]"
             title="LinkedIn"
           >
             <FaLinkedin />
@@ -47,7 +47,7 @@ export default function Footer() {
             href="https://www.instagram.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--color-text-dim)] hover:text-[var(--color-primary)] transition-colors"
+            className="text-[#777777] hover:text-[#111111]"
             title="Instagram"
           >
             <FaInstagram />
@@ -55,30 +55,29 @@ export default function Footer() {
 
           <a
             href="mailto:gsshivaguru@gmail.com"
-            className="text-[var(--color-primary)] hover:opacity-80 transition-all font-medium"
+            className="text-[#777777] hover:text-[#111111]"
             title="Email"
           >
             <FaEnvelope />
           </a>
 
-          {/* Call Button */}
           <a
             href="tel:+918667573511"
-            className="text-[var(--color-primary)] hover:opacity-80 transition-all"
+            className="text-[#777777] hover:text-[#111111]"
             title="Call me"
           >
             <FaPhoneAlt />
           </a>
         </div>
 
-        {/* Phone Number (Optional Visible Text) */}
-        <p className="text-[var(--color-primary)] text-sm font-medium">
-          📞 +91 86675 73511
+        {/* Phone Number */}
+        <p className="text-[#777777] text-[14px] tracking-[-0.01em] mt-1">
+          +91 86675 73511
         </p>
 
         {/* Copyright */}
-        <p className="text-[var(--color-text-dim)] text-sm text-center">
-          © {new Date().getFullYear()} Shivaguru. All rights reserved.
+        <p className="text-[#888888] text-[12px] text-center tracking-[-0.01em] mt-2">
+          Copyright {new Date().getFullYear()} Shivaguru. All rights reserved.
         </p>
       </div>
     </footer>

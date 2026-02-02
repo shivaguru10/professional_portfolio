@@ -37,61 +37,62 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={containerRef} className="px-6 py-24 bg-[var(--color-bg)] transition-colors duration-300">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section id="contact" ref={containerRef} className="px-6 pt-[120px] pb-20 bg-white">
+      <div className="max-w-[1040px] mx-auto grid md:grid-cols-2 gap-20 items-center">
         {/* Left Content */}
-        <div className="contact-item">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--color-text)]">
-            Get in <span className="text-[var(--color-primary)]">Touch</span>
+        <div className="contact-item max-w-[480px]">
+          <h2 className="text-[36px] font-semibold mb-4 text-[#111111] tracking-[-0.025em]">
+            Get in Touch
           </h2>
-          <p className="text-[var(--color-text-dim)] text-lg leading-relaxed max-w-md">
+          <div className="w-full h-[1px] bg-[#E5E5E5] mb-6"></div>
+          <p className="text-[#555555] text-[17px] leading-[1.6] tracking-[-0.01em]">
             Have a project in mind or just want to say hi? Feel free to reach out.
             I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
           </p>
         </div>
 
-        {/* Form */}
+        {/* Form - Apple style */}
         <form
           ref={formRef}
           onSubmit={sendEmail}
-          className="p-8 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] space-y-6 shadow-xl relative z-10"
+          className="space-y-4 w-full max-w-[480px]"
         >
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-[var(--color-text-dim)] ml-1">Name</label>
+          <div>
+            <label className="block text-[13px] font-medium text-[#111111] mb-2 tracking-[-0.01em]">Name</label>
             <input
               type="text"
               name="from_name"
               placeholder="Your Name"
               required
-              className="w-full px-4 py-4 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text)] placeholder:text-[var(--color-text-dim)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-[var(--color-primary)] transition-all"
+              className="w-full px-4 py-3.5 rounded-lg bg-[#F5F5F7] border border-[#D2D2D7] text-[#111111] text-[16px] placeholder:text-[#86868B] focus:outline-none focus:border-[#0071E3]"
             />
           </div>
 
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-[var(--color-text-dim)] ml-1">Email</label>
+          <div>
+            <label className="block text-[13px] font-medium text-[#111111] mb-2 tracking-[-0.01em]">Email</label>
             <input
               type="email"
               name="from_email"
               placeholder="Your Email"
               required
-              className="w-full px-4 py-4 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text)] placeholder:text-[var(--color-text-dim)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-[var(--color-primary)] transition-all"
+              className="w-full px-4 py-3.5 rounded-lg bg-[#F5F5F7] border border-[#D2D2D7] text-[#111111] text-[16px] placeholder:text-[#86868B] focus:outline-none focus:border-[#0071E3]"
             />
           </div>
 
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-[var(--color-text-dim)] ml-1">Message</label>
+          <div>
+            <label className="block text-[13px] font-medium text-[#111111] mb-2 tracking-[-0.01em]">Message</label>
             <textarea
               name="message"
               placeholder="How can I help you?"
               rows="5"
               required
-              className="w-full px-4 py-4 rounded-xl bg-[var(--color-bg)] border border(--color-border) text-[var(--color-text)] placeholder:text-[var(--color-text-dim)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 focus:border-[var(--color-primary)] transition-all resize-none"
+              className="w-full px-4 py-3.5 rounded-lg bg-[#F5F5F7] border border-[#D2D2D7] text-[#111111] text-[16px] placeholder:text-[#86868B] focus:outline-none focus:border-[#0071E3] resize-none"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full py-4 rounded-xl bg-[var(--color-primary)] text-white font-bold text-lg hover:bg-[var(--color-primary-hover)] transition-all active:scale-[0.98]"
+            className="w-full h-12 rounded-lg bg-[#0071E3] text-white font-medium text-[16px] hover:bg-[#005BBB] mt-2"
           >
             Send Message
           </button>

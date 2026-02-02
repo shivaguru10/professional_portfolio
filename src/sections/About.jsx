@@ -13,21 +13,23 @@ export default function About() {
   }, { scope: containerRef });
 
   return (
-    <section id="about" ref={containerRef} className="px-6 py-24 bg-[var(--color-bg)] transition-colors duration-300">
-      <div className="max-w-4xl mx-auto about-content text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-10 text-[var(--color-text)]">
-          About <span className="text-[var(--color-primary)]">Me</span>
+    <section id="about" ref={containerRef} className="px-6 py-[100px] bg-white">
+      <div className="max-w-[680px] mx-auto about-content">
+        <h2 className="text-[40px] font-semibold mb-6 text-[#111111] tracking-[-0.03em] leading-[1.1]">
+          About Me
         </h2>
 
-        <div className="bg-[var(--color-surface)] p-8 md:p-10 rounded-xl border-l-[3px] border-[var(--color-primary)] shadow-sm text-left mx-auto">
-          <p className="text-[var(--color-text-dim)] text-[18px] md:text-[19px] leading-8 md:leading-9">
-            I’m <span className="text-[var(--color-text)] font-semibold">Shivaguru</span>,
-            a passionate Full Stack Developer who enjoys building
-            modern, scalable web applications using React, Node.js, and MongoDB.
-            I focus on clean UI, good UX, and solid backend logic. My goal is to create
-            software that not only works but provides a delightful experience for users.
-          </p>
-        </div>
+        {/* Thin left-aligned divider */}
+        <div className="w-16 h-[1px] bg-[#E5E5E5] mb-8"></div>
+
+        <p className="text-[#555555] text-[17px] leading-[1.58] tracking-[-0.01em]">
+          I'm <span className="text-[#111111] font-medium">Shivaguru</span>,
+          a dedicated <span className="text-[#111111] font-medium">Full Stack Developer</span> skilled in
+          React.js, Node.js, and Express.js. With hands-on internship experience building
+          real-world web features and REST APIs, I have a strong focus on writing clean,
+          efficient code and delivering responsive UIs. I am a quick learner with solid
+          problem-solving skills and a passion for building reliable, user-friendly applications.
+        </p>
       </div>
     </section>
   );

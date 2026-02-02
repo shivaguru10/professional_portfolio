@@ -1,26 +1,20 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Orange Accent Color System */
-  --color-primary: #F59E0B;
-  --color-primary-hover: #D97706;
+  /* Apple Blue Accent Color System */
+  --color-primary: #0071E3;
+  --color-primary-hover: #005BBB;
 
-  /* Light Mode Colors */
-  --color-bg: #F8FAFC;
-  --color-text: #111827;
-  --color-text-dim: #4B5563;
+  /* Apple Light Mode Colors */
+  --color-bg: #FFFFFF;
+  --color-text: #111111;
+  --color-text-dim: #555555;
   --color-surface: #FFFFFF;
-  --color-border: #E5E7EB;
-}
-
-.dark {
-  /* Dark Mode Colors - Pure Monochrome Dark */
-  --color-bg: #0D0D0D;
-  --color-text: #FFFFFF;
-  --color-text-dim: #B3B3B3;
-  --color-surface: #1A1A1A;
-  --color-border: #333333;
+  --color-border: #E5E5E5;
+  --color-input-bg: #F5F5F7;
+  --color-input-border: #D2D2D7;
+  --color-footer-bg: #F5F5F7;
 }
 
 @theme {
@@ -33,17 +27,20 @@
   --color-border: var(--color-border);
 }
 
-/* Base Styles */
+/* Base Styles - Apple Typography */
 * {
-  font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
 }
 
 /* Smooth scrolling */
@@ -51,36 +48,61 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Minimal scrollbar - Apple style */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
+  background: #C7C7CC;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-hover);
+  background: #8E8E93;
 }
 
-/* Typography */
+/* Typography - Apple Style */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: 56px;
   font-weight: 700;
-  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 p {
-  line-height: 1.7;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+/* Apple-style selection */
+::selection {
+  background-color: rgba(0, 113, 227, 0.2);
 }

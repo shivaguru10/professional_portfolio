@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa";
 
 export default function ScrollToTop() {
   const [visible, setVisible] = useState(false);
@@ -28,10 +27,12 @@ export default function ScrollToTop() {
     visible && (
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-[var(--color-primary)] text-white transition-all overflow-hidden"
+        className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-lg bg-[#0071E3] text-white flex items-center justify-center hover:bg-[#005BBB]"
         aria-label="Scroll to top"
       >
-        <FaArrowUp />
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
       </button>
     )
   );

@@ -14,27 +14,30 @@ export default function Skills() {
   }, { scope: containerRef });
 
   return (
-    <section id="skills" ref={containerRef} className="px-6 py-24 bg-[var(--color-bg)] transition-colors duration-300">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-extrabold mb-16 text-center text-[var(--color-text)]">
-          My <span className="text-[var(--color-primary)]">Skills</span>
+    <section id="skills" ref={containerRef} className="px-6 py-24 bg-white">
+      <div className="max-w-[860px] mx-auto">
+        {/* Section Header */}
+        <h2 className="text-[36px] font-semibold mb-3 text-center text-[#111111] tracking-[-0.025em]">
+          Skills
         </h2>
+        <div className="w-16 h-px bg-[#E5E5E5] mx-auto mb-4"></div>
+        <p className="text-[16px] text-[#555555] text-center mb-16 tracking-[-0.01em]">
+          Technologies and tools I work with
+        </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Skills Categories */}
+        <div className="space-y-[42px]">
           {SKILLS.map((skill, index) => (
-            <div
-              key={index}
-              className="skill-card p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm group h-full"
-            >
-              <h3 className="text-xl font-bold mb-5 text-[var(--color-primary)]">
+            <div key={index} className="skill-card">
+              <h3 className="text-[24px] font-semibold mb-5 text-[#111111] tracking-[-0.02em]">
                 {skill.title}
               </h3>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {skill.items.map((item, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1.5 rounded-full border border-[var(--color-primary)] text-[var(--color-text)] font-medium text-sm bg-transparent"
+                    className="px-3.5 py-1.5 rounded-[18px] border border-[#E5E5E5] text-[#111111] font-medium text-[14px] tracking-[-0.01em]"
                   >
                     {item}
                   </span>

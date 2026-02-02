@@ -14,37 +14,53 @@ export default function Experience() {
   }, { scope: containerRef });
 
   return (
-    <section id="experience" ref={containerRef} className="px-6 py-24 bg-[var(--color-bg)] transition-colors duration-300">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-[var(--color-text)]">
-          My <span className="text-[var(--color-primary)]">Journey</span>
+    <section id="experience" ref={containerRef} className="px-6 py-20 bg-[#F5F5F7]">
+      <div className="max-w-[760px] mx-auto">
+        {/* Section Header - Apple style */}
+        <h2 className="text-[36px] font-semibold mb-3 text-center text-[#111111] tracking-[-0.025em]">
+          Experience
         </h2>
+        <p className="text-[17px] text-[#777777] text-center mb-[60px] tracking-[-0.01em]">
+          My professional journey
+        </p>
 
-        <div className="relative border-l-2 border-[var(--color-primary)]/20 ml-4 md:ml-0 pl-8 space-y-16">
-          {EXPERIENCE_EDUCATION.map((item, index) => (
-            <div key={index} className="exp-item relative">
-              {/* Dot */}
-              <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-[var(--color-primary)]" />
+        {/* Timeline Container */}
+        <div className="relative">
+          {/* Vertical Timeline Line */}
+          <div className="absolute left-[3px] top-[4px] bottom-0 w-[1.5px] bg-[#D2D2D7]" />
 
-              <div className="bg-[var(--color-surface)] p-8 rounded-xl shadow-sm border border-[var(--color-border)]">
-                <span className="inline-block px-3 py-1 rounded-full border border-[var(--color-primary)] text-[var(--color-primary)] text-xs font-bold mb-4">
-                  {item.time}
-                </span>
+          {/* Experience Items */}
+          <div className="space-y-12">
+            {EXPERIENCE_EDUCATION.map((item, index) => (
+              <div key={index} className="exp-item relative pl-10">
+                {/* Timeline Dot - Aligned with title */}
+                <div className="absolute left-0 top-[7px] w-2 h-2 rounded-full bg-[#0071E3]" />
 
-                <h3 className="text-2xl font-bold text-[var(--color-text)] mb-2">
-                  {item.title}
-                </h3>
+                {/* Content */}
+                <div className="max-w-[620px]">
+                  {/* Role/Position Title */}
+                  <h3 className="text-[21px] font-semibold text-[#111111] tracking-[-0.02em] leading-[1.25]">
+                    {item.title}
+                  </h3>
 
-                <p className="text-[var(--color-primary)] font-medium mb-4">
-                  {item.place}
-                </p>
+                  {/* Company Name */}
+                  <p className="text-[#0071E3] font-medium text-[15px] mt-1">
+                    {item.place}
+                  </p>
 
-                <p className="text-[var(--color-text-dim)] leading-relaxed">
-                  {item.description}
-                </p>
+                  {/* Duration */}
+                  <span className="inline-block text-[13px] font-normal text-[#777777] mt-1">
+                    {item.time}
+                  </span>
+
+                  {/* Description */}
+                  <p className="text-[#555555] text-[15px] leading-[1.55] mt-2">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
