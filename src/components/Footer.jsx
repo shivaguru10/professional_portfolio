@@ -54,7 +54,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="mailto:gsshivaguru@gmail.com"
+            href="mailto:gsshivaguru@gmail.com?subject=Portfolio%20Inquiry%20-%20Job%20Opportunity&body=Hi%20Shivaguru,%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out...%0D%0A%0D%0A"
             className="text-[#777777] hover:text-[#111111]"
             title="Email"
           >
