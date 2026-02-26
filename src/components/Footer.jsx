@@ -3,7 +3,7 @@ import {
   FaLinkedin,
   FaInstagram,
   FaEnvelope,
-  FaPhoneAlt,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 export default function Footer() {
@@ -24,7 +24,7 @@ export default function Footer() {
         {/* Social Icons - Monochrome grey */}
         <div className="flex gap-4 text-[20px] mt-2">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/shivaguru10"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#777777] hover:text-[#111111]"
@@ -34,7 +34,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/shivaguru-gs-b06015270/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#777777] hover:text-[#111111]"
@@ -62,11 +62,13 @@ export default function Footer() {
           </a>
 
           <a
-            href="tel:+918667573511"
+            href="https://wa.me/918667573511?text=Hi%20Shivaguru,%20I%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out!"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[#777777] hover:text-[#111111]"
-            title="Call me"
+            title="Message on WhatsApp"
           >
-            <FaPhoneAlt />
+            <FaWhatsapp />
           </a>
         </div>
 

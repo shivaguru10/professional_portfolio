@@ -28,7 +28,8 @@ export default function Projects() {
           A selection of my recent work
         </p>
 
-        <div 
+        <div
+          id="projects-grid"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden transition-all duration-500 ease-in-out"
         >
           {visibleProjects.map((project, index) => (
@@ -93,7 +94,16 @@ export default function Projects() {
         {hasMoreProjects && (
           <div className="flex justify-center mt-10">
             <button
-              onClick={() => setShowAll(!showAll)}
+              onClick={() => {
+                if (showAll) {
+                  const element = document.getElementById("projects-grid");
+                  if (element) {
+                    const y = element.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                  }
+                }
+                setShowAll(!showAll);
+              }}
               className="px-5 py-2.5 rounded-lg bg-[#0071E3] text-white font-medium text-[15px] hover:bg-[#005BBB]"
             >
               {showAll ? "Show Less" : "Show More Projects"}
